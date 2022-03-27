@@ -21,7 +21,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Run CI script
         run: yarn ci
@@ -47,6 +47,9 @@ jobs:
           node-version: 14
           cache: 'yarn'
           registry-url: https://npm.pkg.github.com/
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
       - name: Publish package to GitHub
         run: yarn prepare
