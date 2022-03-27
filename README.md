@@ -5,13 +5,13 @@ AppSide Design System
 ## Installation
 
 ```sh
-npm install darwin-ui
+npm install @ycensi/darwin-ui
 ```
 
 ## Usage
 
 ```js
-import { multiply } from "darwin-ui";
+import { multiply } from "@ycensi/darwin-ui";
 
 // ...
 
