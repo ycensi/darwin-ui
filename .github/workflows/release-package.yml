@@ -51,8 +51,8 @@ jobs:
           cache: 'yarn'
           registry-url: https://npm.pkg.github.com/
 
-      # - name: Install dependencies
-      #   run: yarn install --frozen-lockfile
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
       - name: Publish package to GitHub
         run: yarn release
