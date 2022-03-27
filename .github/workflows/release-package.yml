@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 14
           cache: 'yarn'
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@ycensi'
 
