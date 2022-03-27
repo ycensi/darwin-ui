@@ -35,6 +35,8 @@ jobs:
         run: yarn prepare
 
       - name: Publish package to GitHub
-        run: yarn publish
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+          yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
