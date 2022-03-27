@@ -1,0 +1,22 @@
+{
+  "name": "darwin-ui-example",
+  "displayName": "DarwinUi Example",
+  "expo": {
+    "name": "darwin-ui-example",
+    "slug": "darwin-ui-example",
+    "description": "Example app for darwin-ui",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
