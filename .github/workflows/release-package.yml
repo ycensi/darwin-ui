@@ -1,8 +1,9 @@
 name: Darwin UI
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -28,19 +29,26 @@ jobs:
       - name: Run unit tests
         run: yarn test
 
-  publish-gpr:
+  publish-package:
     needs: build
     runs-on: ubuntu-latest
     permissions:
       packages: write
       contents: read
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
           node-version: 14
+          cache: 'yarn'
           registry-url: https://npm.pkg.github.com/
-      - run: yarn ci
-      - run: yarn prepare
+
+      - name: Publish package to GitHub
+        run: yarn prepare
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
