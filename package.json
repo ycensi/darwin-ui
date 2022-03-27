@@ -1,5 +1,5 @@
 {
-  "name": "darwin-ui",
+  "name": "@ycensi/darwin-ui",
   "version": "0.1.0",
   "description": "AppSide Design System",
   "main": "lib/commonjs/index",
