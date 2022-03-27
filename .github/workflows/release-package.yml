@@ -29,6 +29,9 @@ jobs:
       - name: Run unit tests
         run: yarn test
 
+      - name: Publish package to GitHub
+        run: yarn prepare
+
   publish-package:
     needs: build
     runs-on: ubuntu-latest
@@ -48,10 +51,10 @@ jobs:
           cache: 'yarn'
           registry-url: https://npm.pkg.github.com/
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+      # - name: Install dependencies
+      #   run: yarn install --frozen-lockfile
 
       - name: Publish package to GitHub
-        run: yarn prepare
+        run: yarn release
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
