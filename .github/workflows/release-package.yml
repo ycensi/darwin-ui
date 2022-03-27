@@ -1,5 +1,4 @@
-
-name: Darwin UI 
+name: Darwin UI
 
 on:
   release:
@@ -20,8 +19,8 @@ jobs:
           node-version: 14
           cache: 'yarn'
 
-       - name: Install dependencies
-        run: yarn install    
+      - name: Install dependencies
+        run: yarn install
 
       - name: Run CI script
         run: yarn ci
