@@ -20,11 +20,14 @@ jobs:
           node-version: 14
           cache: 'yarn'
 
+       - name: Install dependencies
+        run: yarn install    
+
       - name: Run CI script
-        run: npm ci
+        run: yarn ci
 
       - name: Run unit tests
-        run: npm test
+        run: yarn test
 
   publish-gpr:
     needs: build
@@ -38,7 +41,7 @@ jobs:
         with:
           node-version: 14
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm prepare
+      - run: yarn ci
+      - run: yarn prepare
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
