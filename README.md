@@ -1,7 +1,7 @@
 # Darwin UI 
 [![Darwin UI](https://github.com/ycensi/darwin-ui/actions/workflows/release-package.yml/badge.svg?branch=main)](https://github.com/ycensi/darwin-ui/actions/workflows/release-package.yml)
 
-AppSide Design System 
+Darwin UI: AppSide Design System 
 
 
 ## Installation
