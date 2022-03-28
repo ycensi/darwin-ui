@@ -1,9 +1,8 @@
 name: Darwin UI
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -36,6 +35,13 @@ jobs:
 
       - name: Build package
         run: yarn prepare
+
+      - name: "Automated Version Bump"
+        uses: "maks-stupak/gh-action-bump-version@v7.1.5"
+        with:
+          tag-prefix: 'release-'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish package to GitHub
         run: |
