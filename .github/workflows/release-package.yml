@@ -31,6 +31,13 @@ jobs:
           cache: 'yarn'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@ycensi'
+      
+      - name: Setup release
+        run: |
+            echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+            git config --global user.email "yurirobertcontato@gmail.com"
+            git config --global user.name "ycensi"
+            yarn release --ci
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -47,6 +54,7 @@ jobs:
           git config --global user.email "yurirobertcontato@gmail.com"
           git config --global user.name "ycensi"
           yarn release --ci
+          npm version
           yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
