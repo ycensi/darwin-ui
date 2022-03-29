@@ -31,6 +31,16 @@ jobs:
           cache: 'yarn'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@ycensi'
+      
+      - name:  'Automated Version Bump'
+        uses:  'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          minor-wording:  'add,Adds,new'
+          major-wording:  'MAJOR,cut-major'
+          patch-wording:  'patch,fixes'
+          commit-message: 'chore: bumps version to {{version}} [skip ci]'
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -41,13 +51,12 @@ jobs:
       - name: Run unit tests
         run: yarn test
 
+      - name: Build package
+        run: yarn prepare
+
       - name: Publish package to GitHub
         run: |
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
-          git config --global user.email "yurirobertcontato@gmail.com"
-          git config --global user.name "ycensi"
-          yarn release --ci
-          npm version
           yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
