@@ -17,7 +17,8 @@ jobs:
     permissions:
       packages: write
       contents: write
-      metadata: write
+      id-token: write
+      security-events: write
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
