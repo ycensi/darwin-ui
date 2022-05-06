@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, Alert } from 'react-native';
 import { H2, H1, Container, Button } from '../../atoms';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import styled, { useTheme } from 'styled-components/native';
@@ -43,6 +43,7 @@ export const Walkthrough = (props: WalkthroughProps) => {
   const { colors } = useTheme();
 
   const accessToken = "asdasassadjlkhlkdasdas1232121dassa" // Teste de segurança
+  Alert.alert(accessToken);
 
   const renderPage = ({ item }: { item: WalkthroughItem; index: number }) => {
     return (
