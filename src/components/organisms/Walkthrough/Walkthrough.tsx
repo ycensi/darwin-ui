@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, Alert } from 'react-native';
+import { StatusBar } from 'react-native';
 import { H2, H1, Container, Button } from '../../atoms';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import styled, { useTheme } from 'styled-components/native';
