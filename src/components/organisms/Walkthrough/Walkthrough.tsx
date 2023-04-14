@@ -42,9 +42,6 @@ export const Walkthrough = (props: WalkthroughProps) => {
   const { items, actionButtonLabel, onPressAction } = props;
   const { colors } = useTheme();
 
-  const accessToken = "asdasassadjlkhlkdasdas1232121dassa" // Teste de segurança
-  Alert.alert(accessToken);
-
   const renderPage = ({ item }: { item: WalkthroughItem; index: number }) => {
     return (
       <Page>
